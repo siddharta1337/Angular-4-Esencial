@@ -1,0 +1,52 @@
+textarea, input, button { outline: none; }
+.contenedor {
+  border: solid;
+  width: 38%;
+  display: block;
+  min-height: 260px;
+  float: left;
+  padding: 5%;
+}
+
+button {
+  padding: 10px;
+  margin: 10px;
+  font-size: 15px;
+  color: #fff;
+  background: #9E9E9E;
+}
+
+input {
+  font-size: 30px;
+}
+
+.item {
+  background: silver;
+  padding: 10px;
+  margin: 30px 0;
+  font-family: monospace;
+  font-size: 20px;
+  text-align: center;
+}
+
+.cuadrado{
+  display: block;
+  margin: 20px ;
+  height: 150px;
+  width: 150px;
+  border: solid 1px silver;
+  background: #ccc
+}
+
+button.activo{
+    background: #03A9F4;
+    color: yellow;
+    font-weight: bold;
+}
+
+.green{
+      border-bottom: 7px solid greenyellow;
+}
+.red{
+      border-bottom: 7px solid crimson;
+}

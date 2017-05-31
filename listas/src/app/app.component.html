@@ -1,0 +1,9 @@
+<ul>
+  <li *ngFor="let libro of libros ; index as indice ; first as esPrimero; last as esUltimo ; odd as esPar" >
+   <a (click)="mostrarAutor(libro)">  {{libro.titulo}} </a>
+   <span *ngIf="indice == 5" > Destacado</span>
+    <span *ngIf="esPrimero" > Destacado</span>
+    <span *ngIf="esUltimo" > Destacado</span>
+    <span *ngIf="esPar" > Destacado</span>
+  </li>
+</ul>

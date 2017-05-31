@@ -1,0 +1,42 @@
+a.active,
+a.active:hover,
+a.active:focus {
+  background: silver !important;
+}
+
+.jumbotron {
+  position: relative;
+}
+
+.mostrar-libros {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: none;
+  background: transparent;
+  padding: 15px;
+  font-size: 13px;
+  outline: none !important;
+}
+
+.misLibros {
+  position: absolute;
+  right: 0;
+  top: 35px;
+  border: solid 1px silver;
+  background: #fff;
+  width: 200px;
+  padding: 5px;
+}
+.misLibros h2{
+        margin: 0 0 5px 0;
+    font-size: 20px;
+    border-bottom: solid 1px silver;
+    padding: 0 0 5px 0;
+}
+.misLibros li,
+.misLibros ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none
+}

@@ -1,0 +1,70 @@
+<div class="contenedor">
+  <div *ngIf="valor1">
+    <h1> Texto 1</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+      irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+  </div>
+</div>
+
+<div class="contenedor">
+  <div *ngIf="valor2 ; else otroTexto ">
+    <h1> Texto 2</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+      irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </div>
+  <ng-template #otroTexto >
+
+     <h1> OTRO TEXTO</h1>
+    <p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+      irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+      cupidatat non proident,  quis nostrud exercitation ullamco laboris nisi ut aliquip, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </ng-template>
+
+
+</div>
+
+<hr>
+
+
+<button (click)="valor1 = true"> Texto 1</button>
+
+<button (click)="valor2 = !valor2" > Texto 2</button>
+
+
+<hr> 
+<p>Valor1 : {{ valor1}}</p> 
+<p>Valor2 : {{ diasSemana}}</p> 
+
+
+
+
+<h1>Organizador de tareas</h1>
+
+<div [ngSwitch]="diasSemana">
+  <p class="item" *ngSwitchCase="'lunes'">Tomar café y trabajar</p>
+  <p class="item" *ngSwitchCase="'martes'">No casarme y evitar barcos</p>
+  <p class="item" *ngSwitchCase="'miércoles'">Sobrevivir al día más largo de la semana</p>
+  <p class="item" *ngSwitchCase="'jueves'">Hacer simulacro de viernes</p>
+  <p class="item" *ngSwitchCase="'viernes'">Actualizar redes sociales</p>
+  <p *ngSwitchCase="13"> ---- 13 --- </p>
+
+  <p *ngSwitchDefault> Elije un día de la semana para conocer tu destino</p>
+</div>
+
+<input type="text" [(ngModel)]="diasSemana" />
+
+
+<h1>Estilos</h1>
+
+<div class="cuadrado" [ngStyle]="{'background':color ? color:'peru' }" >
+
+</div>
+
+<button (click)="color = 'red' " [ngClass]="{ 'activo': color == 'red' }" >Rojo</button>
+<button (click)="color = 'green' " [ngClass]="color" >Verde</button>

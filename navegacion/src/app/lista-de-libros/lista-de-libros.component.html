@@ -1,0 +1,7 @@
+<div class="container">
+  <ul>
+    <li *ngFor="let libro of libros">
+       <a [routerLink]="['/detalles' , libro.id ]">  {{libro.titulo}}  </a>
+    </li>
+  </ul>
+</div>

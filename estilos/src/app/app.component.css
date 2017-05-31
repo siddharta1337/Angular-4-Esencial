@@ -1,0 +1,16 @@
+li {
+    list-style-type: none;
+    transition: 0.5s all;
+    padding: 0px;
+    min-height: 25px;
+}
+
+span {
+    margin: 0 3px;
+}
+
+.destacado{
+    background: #9c27b0;
+    padding: 15px;
+    color: #fff;
+}

@@ -1,0 +1,20 @@
+<div class="container">
+
+  <div *ngIf="cargando" >
+    <div class="glyphicon glyphicon-hourglass"> </div> CARGANDO...
+  </div>
+
+  <ul>
+    <li *ngFor="let libro of libros">
+      <a (click)="agregarLibro(libro)"[routerLink]="['/detalles' , libro.id]">  {{libro.titulo}}  </a>
+    </li>
+  </ul>
+
+  <div class="alert alert-warning" *ngIf="errorHttp">
+    No se puede mostrar la lista.
+  </div>
+
+
+
+
+</div>
