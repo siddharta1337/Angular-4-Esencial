@@ -22,4 +22,5 @@ La facilidad de uso y robustas capacidades de Angular lo convirtieron una de las
 
 Si utilizas una versión de Angular despues de la 11 es posible que encuentres algunos problemas de sintaxis, por favor dirigete a la lección "Sintaxis estricta, inicialiciación de variables y tipado" para resolver los posibles problemas que encuentres.
 
-Los proyectos este repositorio están verificados para funcionar con la version 11.2.13 de Angular.
+**Los proyectos este repositorio están verificados para funcionar con la version 11.2.13 de Angular.
+**
