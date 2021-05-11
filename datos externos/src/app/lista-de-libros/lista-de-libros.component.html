@@ -1,0 +1,16 @@
+<div class="container">
+
+  <div *ngIf="cargando" >CARGANDO...</div>
+
+  <ul>
+    <li *ngFor="let libro of libros">
+      <a [routerLink]="['/detalles' , libro.id]">  {{libro.titulo}}  </a>
+    </li>
+  </ul>
+
+
+  <div class="alert alert-warning" *ngIf="errorHttp">
+    No se puede mostrar la lista.
+  </div>
+
+</div>
