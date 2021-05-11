@@ -3,9 +3,9 @@
   <nav class="navbar navbar-default">
     <div class="container">
       <ul class="nav navbar-nav">
-        <li><a href="/">Inicio</a></li>
+        <li><a [routerLink]="['/']" >Inicio</a></li>
         <li><a [routerLink]="['/lista-libros']" routerLinkActive="active" >Lista de libros</a></li>
-        <li><a href="/acerca-de">Acerca de</a></li>
+        <li><a [routerLink]="['/acerca-de']" >Acerca de</a></li>
       </ul>
     </div>
   </nav>
@@ -15,7 +15,7 @@
 
     <div class="misLibros" *ngIf="mostrarLista" >
       <h2>Mis Libros </h2>
-      <ul *ngIf="librosSeleccionados.mostrarLibros()" > 
+      <ul *ngIf="librosSeleccionados.mostrarLibros()" >
         <li *ngFor="let libro of librosSeleccionados.mostrarLibros()" >{{libro.titulo}}</li>
       </ul>
     </div>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Libro } from './common/types';
 
 @Component({
   selector: 'app-root',
@@ -6,8 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
- 
-  libros:Array<Object>;
+
+  libros: Libro[];
 
   constructor(){
      this.libros = [
@@ -24,8 +25,8 @@ export class AppComponent {
     ]
   }
 
-  mostrarAutor(_libro){
+  mostrarAutor(_libro:Libro){
     alert( ` ${_libro.titulo} fue escrito por ${_libro.autor} ` )
   }
- 
+
 }

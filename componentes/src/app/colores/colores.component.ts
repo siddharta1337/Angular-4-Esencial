@@ -7,19 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ColoresComponent implements OnInit {
 
-  colorLocal:String;
+  colorLocal:string = '';
 
   constructor() { }
- 
+
   ngOnInit() {
   }
 
-  generarRandom():String{
+  generarRandom():string{
     return Math.floor( Math.random() * 255 ).toString(16);
   }
 
 
-  colorHex():String{
+  colorHex():string{
     this.colorLocal =  "#"+ this.generarRandom()+ this.generarRandom()+ this.generarRandom();
     return this.colorLocal;
   }

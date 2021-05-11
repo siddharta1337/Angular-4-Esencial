@@ -7,7 +7,7 @@ import { Component, OnInit , Input } from '@angular/core';
 })
 export class SaludoComponent implements OnInit {
 
-  @Input() colorNombre:String;
+  @Input() colorNombre:string = '';
 
   constructor() {}
 

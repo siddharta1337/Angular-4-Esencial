@@ -7,10 +7,11 @@ import { Component , Renderer2 } from '@angular/core';
 })
 export class AppComponent {
 
-  paises: Array<Object>;
-  antiguo:HTMLElement;
+  paises: Array<any>;
+  antiguo:any;
 
   constructor( private renderer:Renderer2) {
+    this.antiguo = null
     this.paises = [
       { nombre: "Argentina", id: 1 },
       { nombre: "Estados Unidos", id: 2 },
@@ -26,7 +27,7 @@ export class AppComponent {
       { nombre: "Ecuador", id: 1 },
       { nombre: "Guyana", id: 1 },
       { nombre: "Uruguay", id: 1 }
-    ]
+    ];
   }
 
   mostrarActivo(elemento:HTMLElement , boton:HTMLElement){
@@ -34,15 +35,15 @@ export class AppComponent {
     if(this.antiguo){
       this.renderer.removeClass(this.antiguo, 'destacado');
     }
-    
-    
+
+
     this.renderer.addClass( elemento , 'destacado' );
 
     let nuevoElemento = this.renderer.createElement("span");
     this.renderer.setProperty(nuevoElemento, "innerHTML" , " ✅ ");
 
     this.renderer.appendChild( elemento , nuevoElemento );
-     
+
     this.renderer.setAttribute(boton, "value", "A viajar ✈️");
     this.renderer.removeAttribute(boton, "disabled");
 

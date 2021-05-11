@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Http, Response, RequestMethod, Request } from '@angular/http';
+import { HttpClient} from '@angular/common/http';
+import { Libro } from '../common/types';
 
 @Component({
   selector: 'app-lista-de-libros',
@@ -8,10 +9,10 @@ import { Http, Response, RequestMethod, Request } from '@angular/http';
 })
 export class ListaDeLibrosComponent implements OnInit {
 
-  libros: Array<Object>;
-  errorHttp:Boolean;
+  libros: any;
+  errorHttp = false;
 
-  constructor(private http: Http) {
+  constructor(private http: HttpClient) {
 
   }
 
@@ -21,10 +22,10 @@ export class ListaDeLibrosComponent implements OnInit {
 
   cargarLista(): void {
     console.log("lista")
-    this.http.request('assets/json/libros.json----')
+    this.http.get('assets/json/libros.json')
       .subscribe(
-        (respuesta: Response) => {this.libros = respuesta.json()},
-        (respuesta: Response) => {this.errorHttp = true},
+        (respuesta) => {this.libros = respuesta},
+        (respuesta) => {this.errorHttp = true},
         )
   }
 

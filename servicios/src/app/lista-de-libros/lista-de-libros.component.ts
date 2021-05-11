@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
+import { Libro } from '../common/types';
+
 
 import { LibrosseleccionadosService } from '../librosseleccionados.service';
 
@@ -10,12 +12,12 @@ import { LibrosseleccionadosService } from '../librosseleccionados.service';
 })
 export class ListaDeLibrosComponent implements OnInit {
 
-  libros: Array<Object>;
-  errorHttp: Boolean;
-  cargando:Boolean;
+  libros: any;
+  errorHttp = false;
+  cargando: boolean = false;
 
 
-  constructor(private http: Http , public librosseleccionados:LibrosseleccionadosService) {
+  constructor(private http: HttpClient, public librosseleccionados: LibrosseleccionadosService) {
 
   }
 
@@ -25,14 +27,16 @@ export class ListaDeLibrosComponent implements OnInit {
   }
 
   cargarLista() {
-    this.http.request('assets/json/lista-de-libros.json').subscribe(
-      (respuesta: Response) => { this.libros = respuesta.json(); this.cargando = false },
-      (respuesta: Response) => { this.errorHttp = true }
+    this.http.get('assets/json/lista-de-libros.json').subscribe(
+      (respuesta) => { this.libros = respuesta; this.cargando = false; },
+      (respuesta) => { this.errorHttp = true }
     )
   }
 
-  agregarLibro(_libro){
+  agregarLibro(_libro: any) {
     this.librosseleccionados.agregarLibros(_libro);
   }
 
 }
+
+

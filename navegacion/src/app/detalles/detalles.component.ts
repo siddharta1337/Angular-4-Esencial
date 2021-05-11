@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute , Params } from '@angular/router';
+import { Libro } from '../common/types';
 
 @Component({
   selector: 'app-detalles',
@@ -8,12 +9,13 @@ import { ActivatedRoute , Params } from '@angular/router';
 })
 export class DetallesComponent implements OnInit {
 
-  libros: Array<Object>;
-  libroId:Number;
-  libroSeleccionado:Object;
- 
+  libros: Array<Libro>;
+  libroId:any
+  libroSeleccionado: any
+
 
   constructor( private ruta:ActivatedRoute ) {
+
     this.libros = [
       { id: 1, titulo: 'El retrato de Dorian Gray', autor: 'Oscar Wilde', descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam." },
       { id: 2, titulo: 'Frankenstein', autor: 'Mary Shelley', descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam." },
@@ -29,17 +31,19 @@ export class DetallesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.ruta.params.subscribe( params =>{
-        this.libroId = params['libroId'];
-        this.libroSeleccionado  = this.encontrarLibro();
-    } )
+
+    this.libroId = this.ruta.snapshot.paramMap.get('libroId');
+    this.libroSeleccionado  = this.encontrarLibro();
+
   }
 
-  filtroPorID(libro){
-	    return libro.id == this; 
+  filtroPorID(libro:Libro){
+    console.log( libro.id , this.libroId)
+	    return libro.id == parseInt(this.libroId, 10) ;
 	}
    encontrarLibro() {
-	    return this.libros.filter( this.filtroPorID , this.libroId )[0] ; 
+      console.log(  this.libroId  )
+	     return this.libros.filter( (libro)=> libro.id ==  this.libroId )[0] ;
 	  }
 
 }
